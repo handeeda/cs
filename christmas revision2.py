@@ -1,70 +1,32 @@
 """
-num=int(input("write a number"))
-
-if num%2==0:
-
-    print("even")
+weight=int(input("write your weight in kg"))
+height=float(input("write your height in m"))
+bmi=height*height
+bmi=weight/bmi
+if bmi <=18.5:
+    print("underweight")
+elif bmi>18.5 and bmi<=24.9:
+    print("normal weight")
+elif bmi>25 and bmi<=29.9:
+    print("overweight")
 else:
-    print("odd")
+    print("obesity")
 
 
-
-age=int(input("write your age"))
-if age>=18:
-    print("you can vote")
+grade=int(input("write your grade"))
+if grade<=100 and grade>=90:
+    print("A")
+elif grade<90 and grade>=80:
+    print("B")
+elif grade<80 and grade>=70:
+    print("C")
+elif grade<70 and grade>=60:
+    print("D")
+elif grade<60:
+    print("F")
 else:
-    print("you cant vote yet")
-
-
-first=int(input("write a number"))
-second=int(input("write another number"))
-if first>second:
-    print("first is bigger")
-elif second>first:
-    print("second is bigger")
-else:
-    print("they are equal")
-
-
-num=int(input("write a number"))
-if num>0:
-    print(num,"is bigger than 0")
-elif num<0:
-    print(num,"smaller than 0")
-else:
-    print(num,"is equal to 0")
-
-age=int(input("write your age"))
-if age>=0 and age<=12:
-    print("child")
-elif age>12 and age<=19:
-    print("teenager")
-elif age>19 and age<=59:
-    print("adult")
-else:
-    print("senior citizen")
-    
-
-num=int(input("write a number"))
-if num==1:
-    print("sunday")
-elif num==2:
-    print("monday")
-elif num==3:
-    print("tuesday")
-elif num==4:
-    print("wednesday")
-elif num==5:
-    print("thursday")      
-elif num==6:
-    print("friday")
-elif num==7:
-    print("saturday")
-else:
-    print("error")
-
+    print("there is no such a grade")
 """
-
 
 
 

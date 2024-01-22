@@ -60,17 +60,12 @@ if menu=="bb":
             carry=0
             list2.append(1)
         
-        print(result)
-        num=num-1
-        if result==a or result==b:
-            list2.append(1)
-            
-        elif result==c:
-            list2.append(0)
         elif result==2:
-            carry=carry+1
+            carry=1
             list2.append(0)
-            
+        elif result==3:
+            carry=1
+            list2.append(1)
     print(list2)       
      
       

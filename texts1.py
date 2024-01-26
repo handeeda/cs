@@ -1,5 +1,16 @@
+import functions
 print("welcome to the binary numbers program \n please choose from the menu")
-menu=input("\n\nbinary to decimal\ndecimal to binary\nadd two binary numbers")
+menu=input("\n\nbinary to decimal\ndecimal to binary\nadd two binary numbers\nbinary to hexidecimal\nhexidecimal to binary")
+
+def db(decimal):
+    list2=[]
+    i=decimal
+    while i>0:
+        
+        list2.append(i%2)
+        i=i//2
+    list2.reverse()
+    return list2
 
 
 
@@ -23,17 +34,13 @@ if menu=="bd":
      print(ppower)
 
 if menu=="db":
-    list2=[]
+    
     decimal=int(input("write a decimal number"))
-    list1=[]
-    list1.append(decimal)
-    i=decimal
-    while i>0:
+    result=functions.db(decimal)
+    
+   
         
-        list2.append(i%2)
-        i=i//2
-        
-    print(list2)    
+    print(result)    
         
 if menu=="bb":
     b1=int(input("write a binary number"))
@@ -63,11 +70,33 @@ if menu=="bb":
         elif result==2:
             carry=1
             list2.append(0)
+            list2.append(1)
         elif result==3:
             carry=1
             list2.append(1)
+            list2.append(1)
+        num=num-1
     print(list2)       
-     
+
+if menu=="hb":
+    A=10
+    B=11
+    C=12
+    D=13
+    E=14
+    hexinum=input("write a hexidecimal number")
+    
+    listedhexinum=list(strhexinum)
+    
+    num=0
+    powerbase=2
+    ppower=0
+    for i in listedhexinum:
+        number=int(listedhexinum[num])
+        powers=pow(ppower,powerbase)
+    powers=powers+1
+    
+    
       
       
       

@@ -86,16 +86,22 @@ if menu=="hb":
     E=14
     hexinum=input("write a hexidecimal number")
     
-    listedhexinum=list(strhexinum)
-    
+    listedhexinum=list(hexinum)
+    inthexinum=int(hexinum)
+   
     num=0
-    powerbase=2
-    ppower=0
-    for i in listedhexinum:
-        number=int(listedhexinum[num])
-        powers=pow(ppower,powerbase)
-    powers=powers+1
     
+    list2=[]
+    while inthexinum>0:
+        remainder=listedhexinum[num]%2
+        ans=listedhexinum[num]//2
+        list2.append(remainder)
+        list2.append(ans)
+        num=num+1
+    print(list2)         
+        
+        
+         
     
       
       

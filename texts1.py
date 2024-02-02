@@ -135,20 +135,61 @@ if menu=="hb":
     print(list5)
          
 if menu== "bh":
-    binarynum=input("enter the binry number")
-    #strbinarynum=str(binarynum)
-    listedbinarynum=list(binarynum)
-    print(listedbinarynum)
-    for i in listedbinarynum:
+     binarynum=input("enter the binry number")
+     #strbinarynum=str(binarynum)
+     list3=[]
+    
+     listedbinarynum=list(binarynum)
+     #print(listedbinarynum)
+     len1=len(listedbinarynum)
+     listedbinarynum.reverse()
+     while len1%4 !=0:
         
-        fourr=listedbinarynum[-1]
-        print(fourr)
+         listedbinarynum.append(0)
+         len1=len(listedbinarynum)
+     #print(len1)
+     listedbinarynum.reverse()
+     
+     i=-1
+     k=-5
+     while k >= (len1+1)*-1:
+         
+     
+     
+         lenoflist=listedbinarynum[i:k:-1]
+         x=lenoflist
+     
+         print(x)
+         powerbase=2
+         power=0
+         list1=[]
+         result=0
+     
+         for a in x:
+             
+             
+                 a=int(a)
+                 result+=pow(powerbase,power)*a
+             
+                 power=power+1    
+         list3.append(result)    
+         #print(list1)
+         i=i-4
+         k=k-4
+         if result==10:
+             list3.append("A")
+         elif result==11:
+             list3.append("B")
+         elif result==12:
+             list3.append("C")
+         elif result==13:
+             list3.append("D")
+         elif result==14:
+             list3.append("E")
+         elif result==15:
+             list3.append("F")    
       
-      
-      
-      
-      
-      
+     print(list3)
       
       
       

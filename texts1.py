@@ -1,6 +1,6 @@
 #import functions
 print("welcome to the binary numbers program \n please choose from the menu")
-menu=input("\n\nbinary to decimal\ndecimal to binary\nadd two binary numbers\nbinary to hexidecimal\nhexidecimal to binary\nbinary to hexidecimal")
+menu=input("\n\nbinary to decimal\ndecimal to binary\nadd two binary numbers\nhexidecimal to binary\nbinary to hexidecimal\nhexidecimal to decimal\ndecimal to hexidecimal")
 
 def db(decimal):
     list2=[]
@@ -191,8 +191,69 @@ if menu== "bh":
       
      print(list3)
       
-      
-      
+if menu=="hd":
+    hnum=input("enter a hexidecimal number")
+    listedhnum=list(hnum)
+    print(listedhnum)
+    powerbase=16
+    power=0
+    result=0
+    list2=[]
+    list3=[]
+    for i in listedhnum:
+        if i =="A":
+            list2.append(10)
+        elif i =="B":
+            list2.append(11)
+        elif i =="C":
+            list2.append(12)    
+        elif i =="D":
+            list2.append(13)
+        elif i =="E":
+            list2.append(14)
+        elif i =="F":
+            list2.append(15)
+        else:
+            list2.append(int(i))
+    list2.reverse()          
+    for i in list2:
+                   
+        result+=pow(powerbase,power)*i
+        power=power+1      
+          
+    print(result)
+    
+if menu =="dh":   
+    dnum=int(input("enter a decimal number"))
+    list2=[]
+    
+    
+    while dnum>0:
+        remainder=dnum%16
+        dnum=dnum//16
+        list2.append(remainder)
+        
+            
+    print(list2)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
       
         
         

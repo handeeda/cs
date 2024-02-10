@@ -223,7 +223,8 @@ if menu=="hd":
           
     print(result)
     
-if menu =="dh":   
+if menu =="dh":
+    list3=[]
     dnum=int(input("enter a decimal number"))
     list2=[]
     
@@ -235,13 +236,22 @@ if menu =="dh":
         
             
     print(list2)
-    
-    
-    
-    
-    
-    
-    
+    for i in list2:
+        if i==10:
+            list3.append("A")
+        elif i==11:
+            list3.append("B")
+        elif i==12:
+            list3.append("C")
+        elif i==13:
+            list3.append("D")
+        elif i==14:
+            list3.append("E")
+        elif i==15:
+            list3.append("F")
+        else:
+            list3.append(i)
+    print(list3)
     
     
     

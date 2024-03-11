@@ -18,7 +18,7 @@ def newword(a,b):
     strlisteda=str(listeda)
     return strlisteda
 print(newword(word,addword))
-"""
+
 word=input("write a word and ill check if its palindrome or not:")
 
 def palindrome_checker(a):
@@ -37,16 +37,58 @@ num=int(input("write numbers"))
 even=0
 odd=0
 def count(a,ab,ac):
-    listeda=list(a)
+    stra=str(a)
+    listeda=list(stra)
     for i in listeda:
-        if i==2%
+        i=int(i)
+        if i%2==0:
             ab=ab+1
         else:
             ac=ac+1
-    return ab and ac
-print(count(num,even,odd))
+    return ab , ac
+c=count(num,even,odd)
+print(c)
+def totals(a,b):
+    c=count(num,even,odd)
+    total=a+b
+    return total
+print(totals(c[0],c[1]))
 
+"""
+sentence=input("write a sentence:")
+list1=[]
+def sentence_to_decimal(a,b):
     
+    listeda=list(a)
+   
+    for i in listeda:
+        chrofa=ord(i)
+        b.append(chrofa)
+    return b
+print(sentence_to_decimal(sentence,list1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

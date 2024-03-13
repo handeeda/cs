@@ -67,6 +67,24 @@ def sentence_to_decimal(a,b):
     return b
 print(sentence_to_decimal(sentence,list1))
 
+sd=sentence_to_decimal(sentence,list1)
+list1=[]
+def decimal_to_binary(a,b):
+    sentence_to_decimal(sentence,list1)
+    listeda=list(a)
+    for i in listeda:
+        i=int(i)
+        while i !=0:
+            i=i//2
+            i=i%2
+            b.append(i)
+        return b
+print(decimal_to_binary(sentence,list1))
+
+
+            
+            
+    
 
 
 

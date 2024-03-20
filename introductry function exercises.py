@@ -65,26 +65,66 @@ def sentence_to_decimal(a,b):
         chrofa=ord(i)
         b.append(chrofa)
     return b
-print(sentence_to_decimal(sentence,list1))
+#print(sentence_to_decimal(sentence,list1))
 
 sd=sentence_to_decimal(sentence,list1)
 list1=[]
-def decimal_to_binary(a,b):
-    sentence_to_decimal(sentence,list1)
-    listeda=list(a)
-    for i in listeda:
-        i=int(i)
-        while i !=0:
-            i=i//2
-            i=i%2
-            b.append(i)
-        return b
-print(decimal_to_binary(sentence,list1))
 
+list3=[]
+def decimal_to_binary(i):
+    #b=sentence_to_decimal(sentence,list1)
+    #sentence_to_decimal(sentence,list1)
+    #listeda=list(a)
+    #print(listeda)
+    #for i in listeda:
+    c=[]    
+    while i !=0:
+        i=i//2
+        d=i%2
+        c.append(d)
+    c.reverse()
+    return c
+for i in sd:
+    list3.append(decimal_to_binary(i))
+print(list3)
 
-            
+for i in list3:
+    lenofi=len(i)
+    if lenofi <=7:
+        i.reverse()
+        i.append(0)
+        i.reverse()
+    if lenofi>7 and lenofi<=11:
+        i.reverse()
+        i[:6].append(0)
+        i[:6].append(1)
+        i.reverse()
             
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -65,7 +65,114 @@ for i in rainfall_cm_list:
 """    
     
     
+name_sales_person=[]
+value_of_sale=[]
+all_value1=[]
+
+msg=("***Welcome***\nplease choose an option below \n1. enter sales data\n2. view total sales to date\n3. view maximum sale value of any staff member\n4. view minimum sale of any staff member\n5. view average sale value of any staff member\nif you are finished please write'done'or'DONE'")
+print(msg)
+menu=int(input("write your option:"))
+
+while menu!="done" or menu!="DONE":
     
+    if menu==1:
+        name=input("enter the name of the sales person:")
+        name_sales_person.append(name)
+        print(name_sales_person)
+        value=float(input("enter the value of the sale"))
+        while value!= float:
+            print("this is not a number")
+            value=float(input("enter the value of the sale"))
+            
+        value_of_sale.append(value)
+        print(value_of_sale)
+        print(msg)
+        menu=int(input("write your option:"))
+        
+    elif menu==2:
+        summ=sum(value_of_sale)
+        print("your value of the total sales is",summ)
+        print(msg)
+        menu=int(input("write your option:"))
+        
+    elif menu==3:
+        name2=input("which person?:")
+        
+        if name2 in name_sales_person:
+            for name2 in name_sales_person:
+                persons_index=name_sales_person.index(name2)
+                value1=value_of_sale[persons_index]
+                name_sales_person.remove(name2)
+                value_of_sale.remove(value1)
+                all_value1.append(value1)
+        max_value=max(all_value1)
+        print(name2,"'s maximum value is",max_value)
+        menu=int(input("write your option:"))
+    
+                
+            
+        else:
+            print(name2,"is not in list")
+            menu=int(input("write your option:"))
+    
+    elif menu==4:
+        name2=input("which person?:")
+        
+        if name2 in name_sales_person:
+            for name2 in name_sales_person:
+                persons_index=name_sales_person.index(name2)
+                value1=value_of_sale[persons_index]
+                name_sales_person.remove(name2)
+                value_of_sale.remove(value1)
+                all_value1.append(value1)
+        min_value=min(all_value1)
+        print(name2,"'s minimum value is",min_value)
+        menu=int(input("write your option:"))
+    
+                
+            
+        else:
+            print(name2,"is not in list")
+            menu=int(input("write your option:"))
+            
+    elif menu==5:
+        name2=input("which person?:")
+        
+        if name2 in name_sales_person:
+            for name2 in name_sales_person:
+                persons_index=name_sales_person.index(name2)
+                value1=value_of_sale[persons_index]
+                name_sales_person.remove(name2)
+                value_of_sale.remove(value1)
+                all_value1.append(value1)
+                
+        len_all_value1=len(all_value1)
+        sum_all_value1=sum(all_value1)
+        sum_all_value1=sum_all_value1/len_all_value1
+        print(name2"'s value of their avergae sales is",sum_all_value1)
+    
+                
+            
+        else:
+            print(name2,"is not in list")
+            menu=int(input("write your option:"))
+    
+    else:
+        print(menu,"is not an option")
+        print(msg)
+        menu=int(input("write your option:"))
+   
+        
+        
+    
+    
+
+    
+    
+    
+    
+    
+      
     
     
     

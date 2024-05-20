@@ -80,7 +80,7 @@ while menu!="done" or menu!="DONE":
         name_sales_person.append(name)
         print(name_sales_person)
         value=float(input("enter the value of the sale"))
-        while value!= float:
+        while value!= float(value) and value!= int(value):
             print("this is not a number")
             value=float(input("enter the value of the sale"))
             
@@ -97,17 +97,22 @@ while menu!="done" or menu!="DONE":
         
     elif menu==3:
         name2=input("which person?:")
-        
-        if name2 in name_sales_person:
-            for name2 in name_sales_person:
-                persons_index=name_sales_person.index(name2)
+        name_sales_person2=name_sales_person.copy()
+        if name2 in name_sales_person2:
+            
+            while name2 in name_sales_person2:
+                #for name2 in name_sales_person:
+                
+                persons_index=name_sales_person2.index(name2)
                 value1=value_of_sale[persons_index]
-                name_sales_person.remove(name2)
+                name_sales_person2.remove(name2)
                 value_of_sale.remove(value1)
                 all_value1.append(value1)
-        max_value=max(all_value1)
-        print(name2,"'s maximum value is",max_value)
-        menu=int(input("write your option:"))
+                #if name2 in name_sales_person:
+                
+            max_value=max(all_value1)
+            print(name2,"'s maximum value is",max_value)
+            menu=int(input("write your option:"))
     
                 
             
@@ -117,17 +122,18 @@ while menu!="done" or menu!="DONE":
     
     elif menu==4:
         name2=input("which person?:")
-        
-        if name2 in name_sales_person:
-            for name2 in name_sales_person:
-                persons_index=name_sales_person.index(name2)
+        name_sales_person3=name_sales_person.copy()
+        if name2 in name_sales_person3:
+            while name2 in name_sales_person3:
+                
+                persons_index=name_sales_person3.index(name2)
                 value1=value_of_sale[persons_index]
-                name_sales_person.remove(name2)
+                name_sales_person3.remove(name2)
                 value_of_sale.remove(value1)
                 all_value1.append(value1)
-        min_value=min(all_value1)
-        print(name2,"'s minimum value is",min_value)
-        menu=int(input("write your option:"))
+            min_value=min(all_value1)
+            print(name2,"'s minimum value is",min_value)
+            menu=int(input("write your option:"))
     
                 
             
@@ -137,24 +143,28 @@ while menu!="done" or menu!="DONE":
             
     elif menu==5:
         name2=input("which person?:")
-        
-        if name2 in name_sales_person:
-            for name2 in name_sales_person:
-                persons_index=name_sales_person.index(name2)
+        name_sales_person4=name_sales_person.copy()
+        if name2 in name_sales_person4:
+            while name2 in name_sales_person4:
+                
+                persons_index=name_sales_person4.index(name2)
                 value1=value_of_sale[persons_index]
-                name_sales_person.remove(name2)
+                name_sales_person4.remove(name2)
                 value_of_sale.remove(value1)
                 all_value1.append(value1)
                 
-        len_all_value1=len(all_value1)
-        sum_all_value1=sum(all_value1)
-        sum_all_value1=sum_all_value1/len_all_value1
-        print(name2"'s value of their avergae sales is",sum_all_value1)
+            len_all_value1=len(all_value1)
+            sum_all_value1=sum(all_value1)
+            sum_all_value1=sum_all_value1/len_all_value1
+            print(name2,"'s value of their avergae sales is",sum_all_value1)
+            print(msg)
+            menu=int(input("write your option"))
     
                 
             
         else:
             print(name2,"is not in list")
+            print(msg)
             menu=int(input("write your option:"))
     
     else:
@@ -163,7 +173,7 @@ while menu!="done" or menu!="DONE":
         menu=int(input("write your option:"))
    
         
-        
+#fix "value"(return a copy of it)        
     
     
 

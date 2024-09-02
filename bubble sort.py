@@ -1,31 +1,46 @@
-def swap1(n):
-            i=0
-            c=1
-            x=n(i)
-            n.insert(c,x)
-            i=i+1
-            c=c+1
-            
+
 
 numbers_list=input("please enter the numbers:")
 numbers_list=list(numbers_list)
 print("this is your list:",numbers_list)
-numbers_list1=numbers_list
 
-for i in  range(len(numbers_list)-1):
-    if numbers_list[i]<numbers_list[i+1]:
-        temp=numbers_list[i]
-        numbers_list[i]=numbers_list[i+1]
-        numbers_list[i+1]=temp
+menu=int(input("1.bubble sort\n2.linear search\n3.binary search:"))
+
+if menu == 1:
+    while numbers_list[0]>numbers_list[1]:
+        for i in  range(len(numbers_list)-1):
+            if numbers_list[i]>numbers_list[i+1]:
+                temp=numbers_list[i]
+                numbers_list[i]=numbers_list[i+1]
+                numbers_list[i+1]=temp
+                print(numbers_list)
         
-        numbers_list[i],numbers_list[i+1]=numbers_list[i+1],numbers_list[i]
+   
+if menu==2:
+    target_value=int(input("write your target value:"))
+    def linear_search(numl):
         
-#while numbers_list1!=numbers_list:
-    #a=0
-    #if numbers_list1[a]!=numbers_list[a]:
-        #swap1(numbers_list1)
-        #print(numbers.list1)
-#print("done:)")
+        #target_value=int(input("write your target value:"))
+        for i in range(len(numl)):
+            num=int(numl[i])
+            if num==target_value:
+            
+                print("we found youre target value in your list!!\nnumber is:",target_value)
+                return 1
+        
+        
+                
+        print("your target value is not in the list")
+    linear_search(numbers_list)        
+                
+
+
+
+
+
+
+
+
 
         
         

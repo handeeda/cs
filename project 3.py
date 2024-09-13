@@ -7,6 +7,9 @@ length=0
 numa=[]
 numbers=[]
 start=0
+
+
+
 for line in f:
     
     line=list(line)
@@ -18,9 +21,17 @@ for line in f:
         if i.isdigit():
             i=int(i)
             length=length+1
-            continue
-        else:
-            numa.append(line[start:length-1])
+            
+            #numa.append(i)
+            #all_numbers.append(numa)
+            #continue
+        elif i ==",":
+            
+            
+            #else:
+            #for i in line:
+            numa.append(line[start:length])
             start=length+1
+            print(numa,"this is num 1")
 print(all_numbers)
             

@@ -4,34 +4,40 @@ print(line)
 
 all_numbers=[]
 length=0
-numa=[]
+
 numbers=[]
 start=0
-
-
-
+a=1
+b=0
 for line in f:
     
     line=list(line)
+    line.remove("\n")
     len_of_line=len(line)
-    for a in range (len_of_line):
-        numbers.append(a)
-    print(numbers)    
+    #for a in range (len_of_line):
+        #numbers.append(a)
+    #print(numbers)    
     for i in line:
-        if i.isdigit():
-            i=int(i)
+        if i.isdigit() or i==".":
+            #i=int(i)
             length=length+1
             
             #numa.append(i)
             #all_numbers.append(numa)
             #continue
         elif i ==",":
-            
-            
-            #else:
-            #for i in line:
-            numa.append(line[start:length])
+            numa=[]
+            numa.append(line[start:length+b])#look at here
+            b=b+1#look at here
             start=length+1
-            print(numa,"this is num 1")
-print(all_numbers)
+            #if bh in numa:
+                #numa.remove(",")
+            all_numbers.append(numa)
+            print(numa,"this is num",a)
+            a=a+1
+#print(all_numbers)
+            
+            
+            
+            
             

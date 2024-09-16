@@ -9,6 +9,7 @@ numbers=[]
 start=0
 a=1
 b=0
+firstpass=True
 for line in f:
     
     line=list(line)
@@ -27,8 +28,13 @@ for line in f:
             #continue
         elif i ==",":
             numa=[]
+            if firstpass==True:
+                b=0
+                firstpass=False
+            else:
+                b=b+1
             numa.append(line[start:length+b])#look at here
-            b=b+1#look at here
+            #look at here
             start=length+1
             #if bh in numa:
                 #numa.remove(",")

@@ -1,30 +1,39 @@
 menu=("1.create a new file\n2. display the file\n3.add a new item to the file")
 print(menu)
-selection=int(input("select:"))
+selection=input("select:")
+a=1
+while a==1:
+    if selection=="1":
+        name=input("create a file name:")
+        item=input("write an item ")
+        f=open(name+".txt","w")
+        f.write(item)
+        f.close()
+        print(menu)
+        selection=input("select:")
 
 
-f=open("Numbers.txt","w")
-f.write("1,2,3,4,5")
-f.close()
+    elif selection=="2":
+        fn=open("C:/Users/23HOzdemir.ACC/Desktop/"+name+".txt","r")
+        readd=fn.read()
+        print(readd)
+        fn.close()
+        selection=input("select:")
 
-fn=open("Names.txt","w")
-fn.write("bob\nrob\njosh\ntate\n")
-fn.close()
+    elif selection=="3":
+    
+        item1=input("write an item:")
+        fn= open("C:/Users/23HOzdemir.ACC/Desktop/"+name+".txt","a")
+        fn.write(item1)
+        fn.close()
+        selection=input("select:")
 
-fn=open("C:/Users/23HOzdemir.ACC/Desktop/Names.txt","r")
-readd=fn.read()
-print(readd)
-fn.close()
-
-name=input("write a name:")
-fn= open("C:/Users/23HOzdemir.ACC/Desktop/Names.txt","a")
-fn.write(name)
-fn.close()
-
-fn=open("C:/Users/23HOzdemir.ACC/Desktop/Names.txt","r")
-ready=fn.read()
-print(ready)
+    elif menu=="stop":
+        break
 
 
+    else:
+        print("error please enter again")
+        selection=input("select:")
 
-
+print("____________________")

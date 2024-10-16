@@ -1,0 +1,19 @@
+ul{
+    background-color: crimson;
+    color:antiquewhite
+}
+ol{
+    background-color: brown;
+    color: burlywood;
+}
+#first{
+    background-color: brown;
+    color: cadetblue;
+}
+.second{
+    background-color: aquamarine;
+    color: blue;
+}
+div{
+    border: 2px solid brown;
+}

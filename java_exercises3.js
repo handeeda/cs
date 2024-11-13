@@ -22,7 +22,30 @@ function can_drive_car(u,c){
 }
 can_drive_car(user,car);
 
+nums=[4,2,6]
+a=0
+function all_even(listn){
+    for (let i=0;i<listn.length;i=i+1){
+        if (listn[i]%2==0){
+            a=a+1
+            if (a==3){
+                console.log("all numbers are even")
+            }
+            else{
+                console.log("all numbers are not even")
+            }
+        }
+        
+        
+        
+    }
+}
 
-function all_even(num1,num2,num3)
+all_even(nums);
+
+
+
+
+
 
 

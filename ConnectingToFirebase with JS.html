@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Firebase Test Connection</title>
+</head>
+
+<body>
+    <h1>
+        Some random text for webpage
+    </h1>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCHyvzvqPzCdCNA34RTVUhx7hq0-1VUBTI",
+            authDomain: "lc-project-b2832.firebaseapp.com",
+            databaseURL: "https://lc-project-b2832-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "lc-project-b2832",
+            storageBucket: "lc-project-b2832.firebasestorage.app",
+            messagingSenderId: "900308873681",
+            appId: "1:900308873681:web:bd57ff83691b02f2b0f0f0"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        import { getDatabase, ref, set, get, update, child } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+        const database = getDatabase(); //This creates a firebase instance
+        // let link_to_database_root = ref(database); //This creates a reference (link) to the root of your database
+        //This will create a reference to whatever address comes after the comma
+        const firebaseRef = ref(database);
+
+        function processing(snapshot) {
+            console.log('Processing function')
+            console.log(snapshot.size)//number of children in the snapshot
+            snapshot.forEach(function () { console.log('Key =>', snapshot.key); console.log('Value =>', snapshot.val()); })
+
+            //snapshot.forEach(processing2);
+        }
+
+        get(firebaseRef).then(processing);
+
+
+        update(ref(database, 'posts/' + 'newerpost2'), {
+            username: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 100],
+            email: 'otheremail'
+        });
+
+
+    </script>
+</body>
+
+</html>

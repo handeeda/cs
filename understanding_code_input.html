@@ -1,0 +1,44 @@
+
+<!Doctype html>
+<html lang="en">
+<head>
+  <title>
+    HTML Practice
+  </title>
+  <meta charset="utf-8">
+</head>
+<body>
+<form id="practice_form">
+        <textarea id="generalInput" name="generalInput" rows="4" cols="50"></textarea>
+    
+        <br>
+        <button id="btn" type="submit">OK</button>
+        <button id="bob" type="reset">reset form</button>
+</form>
+<script>
+  //html ends
+  //java starts
+  //Part 1
+  let formSubmission = document.getElementById('practice_form');
+  formSubmission.addEventListener('submit',preventDefaultSubmission);
+  function preventDefaultSubmission(event){
+    let textInput = document.getElementById('generalInput');
+    let userData = textInput.value;
+    event.preventDefault();
+    console.log(textInput.value);
+   
+ /*
+ elements: anything in the angle brackets
+ getElementById: look for the element
+ addEventListener: when user hits the element it tells you 
+ preventDefault: stops the default action pre-programmed into the button
+ document: accesses the html
+
+
+ */
+    
+  }
+  
+</script>
+</body>
+</html>

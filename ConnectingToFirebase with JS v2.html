@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Firebase Test Connection</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
+    </script>
+</head>
+
+<body>
+    <h1>
+        Some random text for webpage
+    </h1>
+    <canvas id="myChart" width="450" height="200"></canvas>
+    <button id="update">Update</button>
+    
+
+
+    <form id="addBook">
+        <fieldset>
+            <legend>Enter book details</legend>
+            <label for="bookTitle">Title</label>
+            <input type="text" id="bookTitle"><br>
+            <label for="bookAuthor">Author</label>
+            <input type="text" id="bookAuthor"><br>
+            <label for="bookGenre">Genre</label>
+            <input type="text" id="bookGenre"><br>
+            <label for="bookPrice">Price</label>
+            <input type="number" id="bookPrice"><br>
+
+            <input type="submit" id="abc">
+        </fieldset>
+    </form>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCHyvzvqPzCdCNA34RTVUhx7hq0-1VUBTI",
+            authDomain: "lc-project-b2832.firebaseapp.com",
+            databaseURL: "https://lc-project-b2832-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "lc-project-b2832",
+            storageBucket: "lc-project-b2832.firebasestorage.app",
+            messagingSenderId: "900308873681",
+            appId: "1:900308873681:web:bd57ff83691b02f2b0f0f0"
+        };
+        let updateChartButton = document.getElementById('update');
+        updateChartButton.addEventListener('click', addDataToChart)
+        let addBookRecord = document.getElementById('addBook');
+        addBookRecord.addEventListener('submit', addBookToRecords)
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        import { getDatabase, ref, set, get, update, child, query,orderByChild } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+        const database = getDatabase(); //This creates a firebase instance
+        // let link_to_database_root = ref(database); //This creates a reference (link) to the root of your database
+        //This will create a reference to whatever address comes after the comma
+        const firebaseRef = ref(database);
+        let prices = []
+        let childKeys = {}
+
+
+        let ctx = document.getElementById("myChart");
+        let myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["CS", "IT", "ECE", "EE", "ME", "BE"],
+                datasets: [
+                    {
+                        label: '# of students',
+                        data: [105, 124, 78, 91, 62, 56],
+                        backgroundColor: ['rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+
+
+
+        function addDataToChart() {
+            
+            get(child(firebaseRef,'/')).then((snapshot) => {
+                if (snapshot.exists()) {
+                    console.log(snapshot.val());
+
+                // These two lines turn our snapshot into a dictionary
+                let data = JSON.stringify(snapshot.val());
+                let JSObjectData = JSON.parse(data)
+                //console.log(data);
+                console.log(Object.keys(JSObjectData))
+                for (let [key, value] of Object.entries(JSObjectData)) { //returns the key value pairs books and posts
+                    //  console.log('This is', key, '---------------', value);
+                    if (key == 'Books'){
+                        for (let [innerkey, innervalue] of Object.entries(value)) { // returns books 1, 2 etc
+                            //    console.log(innerkey, '---------------', innervalue);
+                            for (let [innermostkey, innermostvalue] of Object.entries(innervalue)) {
+                                    console.log(innermostkey, '---------------', innermostvalue);
+                                if (innermostkey == 'Price') {
+                                    prices.push(innermostvalue);
+                                }
+                            }
+                        }
+                    }
+                }
+               console.log(myChart.data.datasets)
+                let ds = {
+                    label: 'label2',
+                    backgroundColor: '#ff0000',
+                    data: prices,
+                    id: 2
+                }
+                myChart.data.datasets.push(ds);
+                myChart.update();
+                console.log(myChart.data.datasets)
+
+            } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+
+            function addBookToRecords() {
+            alert('adding book')
+            let newRecord = {}
+            let bookTitle = document.getElementById('bookTitle')
+            let bookAuthor = document.getElementById('bookAuthor')
+            let bookGenre = document.getElementById('bookGenre')
+            let bookPrice = document.getElementById('bookPrice')
+            newRecord['Title'] = bookTitle.value;
+            newRecord['Author'] = bookAuthor.value;
+            newRecord['Genre'] = bookGenre.value;
+            newRecord['Price'] = bookPrice.value;
+
+            update(ref(database, "Books/Book5"), newRecord)
+
+
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
